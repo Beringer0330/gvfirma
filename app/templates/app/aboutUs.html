@@ -1,0 +1,205 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+<section id="nosotros">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb--ys pull-left">
+                <li class="home-link"><a href="{% url 'index' %}"><i class="fa fa-home"></i></a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li class="active">Nosotros</li>
+            </ol>
+        </div>
+    </div>
+    {% for i in info %}
+    <div class="section-title text-center wow fadeInDown">
+        <p>{{ i.intro_nosotros|safe }}</p>
+    </div>
+    {% endfor %}
+</section>
+
+<section id="service-bottom1">
+    <div class="container">
+        <div class="row">
+            {% for i in info %}
+
+            <div class="col-md-12  video-device  text-center wow fadeInRight">
+                <iframe width="80%" height="315" src="{{ i.url_video }}" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div class="col-md-12 service-features  text-center wow fadeInLeft">
+                <br>
+                <br>
+                <h2>NUESTRA
+                    MISIÓN
+                </h2>
+                <p>{{ i.mision }}</P>
+
+                <br>
+                <br>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<section id="count-about">
+    <div class="container">
+        <div class="row">
+            {% for i in indicadores %}
+            {% if i.id == 1 %}
+            <div class="item-list col-md-4 col-sm-6 col-xs-12 text-center wow fadeInUp c1">
+                <div class="fact-item text-center last">
+                    <span class="valor" data-to="{{ i.valor }}">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.valor }}</font>
+                        </font>
+                    </span>
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.nombre }}</font>
+                        </font>
+                    </p>
+                </div>
+                
+            </div> 
+            {% endif %}
+            {% if i.id == 2 %}
+            <div class="item-list col-md-4 col-sm-6 col-xs-12 text-center wow fadeInUp c2">
+                <div class="fact-item text-center last">
+                    <span class="valor" data-to="{{ i.valor }}">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.valor }}</font>
+                        </font>
+                    </span>
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.nombre }}</font>
+                        </font>
+                    </p>
+                </div>
+                
+            </div> 
+            {% endif %}
+            {% if i.id == 3 %}
+            <div class="item-list col-md-4 col-sm-6 col-xs-12 text-center wow fadeInUp c3">
+                <div class="fact-item text-center last">
+                    <span class="valor" data-to="{{ i.valor }}">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.valor }}</font>
+                        </font>
+                    </span>
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.nombre }}</font>
+                        </font>
+                    </p>
+                </div>
+                
+            </div> 
+            {% endif %}
+            {% if i.id == 4 %}
+            <div class="item-list col-md-4 col-sm-6 col-xs-12 text-center wow fadeInUp c4">
+                <div class="fact-item text-center last">
+                    <span class="valor" data-to="{{ i.valor }}">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.valor }}</font>
+                        </font>
+                    </span>
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.nombre }}</font>
+                        </font>
+                    </p>
+                </div>
+                
+            </div> 
+            {% endif %}
+            {% if i.id == 5 %}
+            <div class="item-list col-md-4 col-sm-6 col-xs-12 text-center wow fadeInUp c5">
+                <div class="fact-item text-center last">
+                    <span class="valor" data-to="{{ i.valor }}">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.valor }}</font>
+                        </font>
+                    </span>
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">{{ i.nombre }}</font>
+                        </font>
+                    </p>
+                </div>
+                
+            </div> 
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="icon-service">
+    <div class="section-title text-center wow fadeInDown" style=" margin: 0 auto 0px;">
+        <h2>Servicios</h2>
+       
+    </div>
+    <div class="row">
+        <div class="col-sm-12 wow fadeInDown">
+            <div id="customers-asocia" class="owl-carousel">
+                {% for se in servis %}
+
+                <!--TESTIMONIAL 1 -->
+
+                <div class="item" style="width: 50%;margin-left: 25%;">
+
+                    {% if se.icon %}
+                    <a href="{% url 'detalleService' se.slug %}">
+                        <img src="{{ se.icon.url }}" alt="">
+                        <h5 style="text-transform: uppercase;color: black;">{{ se.nombre }}</h5>
+                    </a>
+                    {% endif %}
+
+                </div>
+
+                <!--END OF TESTIMONIAL 5 -->
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="sectores">
+    <div class="section-title text-center wow fadeInDown" style=" margin: 0 auto 0px;">
+        <h2>Sectores Asesorados</h2>
+       
+    </div>
+    <div class="row">
+        <div class="col-sm-12 wow fadeInDown">
+            <div id="customers-sector" class="owl-carousel">
+                {% for s in sectores %}
+                
+                <div class="item">
+
+                    {% if s.imagen %}
+                    <img class="img-circle" src="{{ s.imagen.url }}" alt="" style="border-radius: 0;">
+                    {% endif %}
+
+                </div>
+                
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock%}

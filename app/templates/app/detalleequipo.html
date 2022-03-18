@@ -1,0 +1,74 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block jsjava %}
+<script type="text/javascript" src="{% static 'app/js/vcard.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+
+<section id="team-bottom">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb--ys pull-left">
+                <li class="home-link"><a href="{% url 'index' %}"><i class="fa fa-home"></i></a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'team' %}">Equipo</a></li>
+                <li class="active">{{ da.nombre }}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 service-features wow fadeInLeft ">
+                <div class="team_title text-center">
+                    <h2>{{ da.nombre }}</h2>
+                    <div class="red">
+                        <br>
+                        <span id="vvcard">{{ da.TipoAsociado }} |
+                            <a href=" {{ da.linkedin }}" target="_blank">
+                                <i class="fa fa-linkedin"></i>
+                            </a> | </span><br><br>
+                    </div>
+
+                </div>
+                <div style="margin-left: 20px; margin-right: 20px;">
+                    <br>
+                    <br>
+                    <p>{{ da.vida|safe }}</P>
+                    <br>
+                    <br>
+                </div>
+
+
+            </div>
+            <div class="col-md-5  text-center video-device wow fadeInRight">
+                {% if da.imagen %}
+                <img class="img-responsive" src="{{ da.imagen.url }}" alt="{{ da.nombre }}" width="80%" height="315">
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>
+<script type="text/javascript">
+    // Without helper methods
+    var johnDoe = vCard.create(vCard.Version.FOUR)
+    johnDoe.add(vCard.Entry.NAME, ";{{ da.nombre_corto }};;")
+    johnDoe.add(vCard.Entry.FORMATTEDNAME, "{{ da.nombre }}")
+    johnDoe.add(vCard.Entry.NICKNAME, "{{ da.nombre_corto }}")
+    johnDoe.add(vCard.Entry.TITLE, "{{ da.TipoAsociado }}")
+    //johnDoe.add(vCard.Entry.PHONE, "555-555-555", vCard.Type.CELL)
+    johnDoe.add(vCard.Entry.EMAIL, "{{ da.correo }}", vCard.Type.WORK)
+
+    //johnDoe.add(vCard.Entry.PHOTO, "{{ da.imagen.url }}")               
+    johnDoe.add(vCard.Entry.ORGANIZATION, "Gamarra & Vasquez Abogados")
+    //johnDoe.add(vCard.Entry.ADDRESS, ";;street;city;state;zip code;country", vCard.Type.HOME)
+    johnDoe.add(vCard.Entry.URL, "{{ da.linkedin }}")
+
+    var link = vCard.export(johnDoe, "{{ da.nombre_corto }}", false) // use parameter true to force download
+    document.getElementById("vvcard").appendChild(link)
+</script>
+{% endblock%}

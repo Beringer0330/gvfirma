@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+<section id="detalle">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb--ys pull-left">
+                <li class="home-link"><a href="{% url 'index' %}" ><i class="fa fa-home"></i></a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li class="active">{{ db.nombre }}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section-title wow fadeInDown">
+        <h2 class="text-center">{{ db.nombre }}</h2>
+        <p>{{ db.body| safe }}</p>
+    </div>
+
+</section>
+{% endblock%}

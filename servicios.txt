@@ -1,0 +1,47 @@
+<br>
+<p class="des">
+
+</p>
+
+<div class="fadeInUp row wow">
+                    <div class="c1 col-md-4 col-sm-6 col-xs-12 fadeInUp item-list text-center wow">
+                        <div class="fact-item last text-center"><img alt="" class="item-list--icon"
+                                src="/static/app/img/icon_ser/iconos carta de servicios blanco-31.png" />
+                            <p>LITIGIOS EN CONTROVERSIAS JUDICIALES DE NEGOCIOS JUR&Iacute;DICOS O CONTRATOS</p>
+                            <br>
+                            <p class="des"> En ocasiones son celebrados contratos o negocios jur&iacute;dicos que perjudican o vulnerar el
+                                derecho de otros. Aplicamos diversos mecanismos para el cuestionarlos, dejando sin efecto el
+                                contrato, revirtiendo o anulando sus consecuencias.</p>
+                        </div>
+                    </div>
+
+                    <div class="c2 col-md-4 col-sm-6 col-xs-12 fadeInUp item-list text-center wow">
+                        <div class="fact-item last text-center"><img alt="" class="item-list--icon"
+                                src="/static/app/img/icon_ser/iconos carta de servicios blanco-32.png" />
+                            <p>ASESOR&iacute;A Y PARTICIPACI&Oacute;N EN PROCEDIMIENTOS DE SANEAMIENTO DE PROPIEDAD
+                                INMUEBLE</p>
+                        </div>
+                    </div>
+
+                    <div class="c3 col-md-4 col-sm-6 col-xs-12 fadeInUp item-list text-center wow">
+                        <div class="fact-item last text-center"><img alt="" class="item-list--icon"
+                                src="/static/app/img/icon_ser/iconos carta de servicios blanco-33.png" />
+                            <p>LITIGIOS POR LA DEFENSA JUDICIAL DE PROPIEDAD INMUEBLE</p>
+                        </div>
+                    </div>
+
+                    <div class="c4 col-md-4 col-sm-6 col-xs-12 fadeInUp item-list text-center wow">
+                        <div class="fact-item last text-center"><img alt="" class="item-list--icon"
+                                src="/static/app/img/icon_ser/iconos carta de servicios blanco-34.png" />
+                            <p>SOLUCIONES Y LITIGIOS EN CASOS COMPLEJOS DE EJECUCI&Oacute;N DE CONTRATOS O ACUERDOS
+                                COMERCIALES</p>
+                        </div>
+                    </div>
+
+                    <div class="c5 col-md-4 col-sm-6 col-xs-12 fadeInUp item-list text-center wow">
+                        <div class="fact-item last text-center"><img alt="" class="item-list--icon"
+                                src="/static/app/img/icon_ser/iconos carta de servicios blanco-36.png" />
+                            <p>DISE&Ntilde;O Y ACOMPA&Ntilde;AMIENTO DE CONTRATOS CIVILES Y ACUERDOS COMERCIALES</p>
+                        </div>
+                    </div>
+                </div>

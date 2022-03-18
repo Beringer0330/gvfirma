@@ -1,0 +1,90 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+<section id="contact">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb--ys pull-left">
+                <li class="home-link"><a href="{% url 'index' %}"><i class="fa fa-home"></i></a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li class="active">Contacto</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="section-title text-center wow fadeInDown">
+                <h2>Formulario de Contacto</h2>
+                <p class="description_p">Para atender su consulta, por favor complete el siguiente formulario.</p>
+            </div>
+
+            <div class="col-md-8 col-sm-9 wow fadeInLeft">
+                <div class="contact-form clearfix">
+                    <form name="loginform" action="" method="post">
+                        {% csrf_token %}
+
+                    
+                        <div class="input-field">
+                            <input type="text" class="form-control" name="name_con" placeholder="Nombre *" required="">
+                        </div>
+                        <div class="input-field">
+                            <input type="email" class="form-control" name="email_con" placeholder="Correo Electronico *"
+                                required="">
+                        </div>
+                        <div class="input-field message">
+                            <textarea name="message_con" class="form-control" placeholder="Mensaje *"
+                                required=""></textarea>
+                        </div>
+                        
+                        <div class="form-group boolean required subscriber_subscribed_with_acceptance">
+                            <div class="checkbox"><input value="0" type="hidden"
+                                    name="subscriber[subscribed_with_acceptance]" /><label style="color: #a8a8a8;font-weight: 700;"
+                                    class="boolean required termino"
+                                    for="subscriber_subscribed_with_acceptance"><input class="boolean required"
+                                        required="required" aria-required="true" type="checkbox" value="1"
+                                        name="subscriber[subscribed_with_acceptance]"
+                                        id="subscriber_subscribed_with_acceptance" onclick="enableSending()" style="margin-top: 0px;"/><abbr title="Requerido">
+                                    </abbr> Aceptar política de privacidad&nbsp;</label><span style="color: #91c4cf;">*</span></div>
+                                   
+                        </div>
+                        <div class="input-field">
+                            {{captcha}}
+                        </div>
+                        <input type="submit" name="submit" class="btn btn-blue pull-right" value="ENVIAR MENSAJE"
+                            id="msg-submit">
+                    </form>
+                </div> 
+            </div> 
+            {% for i in info %}
+            <div class="col-md-4 col-sm-3 wow fadeInRight">
+
+                <div class="contact-details">
+                    <span style="font-weight: bold;">INFORMACION</span>
+                    <p>{{ i.direccion }}<br> <br> {{ i.telefono }}</p>
+                </div> 
+
+                <div class="contact-details">
+                    <span style="font-weight: bold;">CORREO</span>
+                    <p> {{ i.correo }}<br> <br>
+                        
+                    </p>
+                </div>
+
+            </div> 
+            <div class="maps">
+                <br><br>
+                <iframe class="wow fadeInUp" src="{{ i.url_maps }}" width="100%" height="400" style="border:0;"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock%}

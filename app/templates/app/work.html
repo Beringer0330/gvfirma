@@ -1,0 +1,73 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+<section id="working">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb--ys pull-left">
+                <li class="home-link"><a href="{% url 'index' %}"><i class="fa fa-home"></i></a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'aboutUs' %}">Nosotros</a></li>
+                <li class="active">Trabaja con nosotros</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="section-title text-center wow fadeInDown">
+                <h2>TRABAJA CON NOSOTROS</h2>
+                <p class="description_p">Para atender su consulta, por favor complete el siguiente formulario.</p>
+            </div>
+
+            <div class="col-md-12 col-sm-12  wow fadeInUp">
+                <div class="contact-form clearfix">
+                    <form name="loginform" action="" method="post">
+                        {% csrf_token %}
+
+                        <div class="input-field">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre *" required="">
+                        </div>
+                        <div class="input-field">
+                            <input type="email" class="form-control" name="correo" placeholder="Correo Electronico *"
+                                required="">
+                        </div>
+                        <div class="input-field">
+                            <input type="number" class="form-control" name="numero" placeholder="Teléfono *" maxlength="12" required="">
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="form-control" name="asunto" placeholder="Asunto *" required="">
+                        </div>
+                        <div class="input-field">
+                           
+                            <div class="form-group inputDnD">
+                                <label class="sr-only" for="inputFile">Subir Archivo</label>
+                                <input type="file" class="form-control-file text-primary font-weight-bold"
+                                    id="inputFile" name="file_tra" accept="application/pdf" onchange="readUrl(this)"
+                                    data-title="Arrastra y suelta un archivo PDF">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block"
+                                onclick="document.getElementById('inputFile').click()">Adjuntar CV</button>
+                        </div>
+                        <div class="input-field">
+                            <input type="checkbox" id="cbox1" name="chec_tra"  required="" style="width: 16px;height: 16px;" onclick="enableSending()">
+                            <label for=" cbox1">&nbsp; Acepto los términos y condiciones <span
+                                    style="color: #91c4cf;">*</span></label>
+                        </div>
+                        <div class="input-field">
+                            {{captcha}}
+                        </div>
+                        <input type="submit" name="submit" class="btn btn-blue pull-right" value="ENVIAR MENSAJE"
+                            id="msg-submit" disabled>
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock%}

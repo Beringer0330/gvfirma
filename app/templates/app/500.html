@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+
+{% block title %} 
+Error 500 | Error en el Servidor
+{% endblock %}
+
+
+{% load static %}
+
+{% block contenido %}
+<section id="home">
+    <ul id="slider">
+        <li
+            style="background-image: url('{% static 'app/img/banner_500.jpg' %}'); z-index:0; opacity: 1;">
+            <div class="content_slider">
+                <div>
+                    <h2 class="wow fadeInLeft">Error 500 </h2>
+                    <p class="wow fadeInRight">Internal Server Error</p>
+					<br>
+					<a class="wow fadeInUp" href="{% url 'index' %}" style="font-size:15px;border: 3px solid white;padding:5px;border-radius:50px;color: white;">Volver al Home</a>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+{% endblock %}

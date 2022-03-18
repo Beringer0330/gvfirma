@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+
+<!--
+        #service
+        ========================== -->
+<section id="pricing">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb--ys pull-left">
+                <li class="home-link"><a href="{% url 'index' %}"><i class="fa fa-home"></i></a></li>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li class="active">Servicios</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="section-title text-center wow fadeInUp">
+                <h2 style="margin-bottom: 70px">Servicios</h2>
+                
+            </div>
+            <div class="content-service">
+                {% for s in service %}
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
+                    <div class="pricing-table text-center">
+                        <div class="price">
+                            {% if s.icon %}
+                            <img class="img-responsive" style="text-align: center;" src="{{ s.icon.url }}"
+                                alt="{{ s.nombre }}">
+                            {% endif %}
+                            <div class="name-ser">
+                                <span class="plan">{{ s.nombre }}</span>
+                            </div>
+                        </div>
+                        <a href="{% url 'detalleService' s.slug %}" class="btn btn-price">VER MÁS</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12 wow fadeInUp">
+                <div class="special-plan text-center">
+                    <p>Si tiene alguna consulta</p>
+                    <a id="contact_ser" href="{% url 'contact' %}" class="btn btn-blue">Contacta con Nosotros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--
+        End #pricing
+        ========================== -->
+{% endblock%}
